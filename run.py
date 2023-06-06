@@ -11,8 +11,9 @@ def create_board():
 
 # Function to print the board
 
-def print_board():
-    pass
+def print_board(board):
+    for row in board:
+        print(" ".join(row))
 
 # Function to place the ships
 
