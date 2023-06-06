@@ -1,9 +1,13 @@
 from random import randint
 
+board = []
+
 # Function to create an empty board
 
 def create_board():
-    pass
+    for _ in range(6):
+        board.append('O')
+    return board
 
 # Function to print the board
 
