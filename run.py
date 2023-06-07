@@ -41,3 +41,14 @@ def play_game():
     print(Welcome to BattleShips!)
     print(Where you have 10 shots to take down the hidden enemy ships)
 
+    while num_of_shots > 0:
+        print("\nPlayer Board:")
+        print_board(player_board)
+
+        #Get players guess
+        try:
+            guess_row = int(input("Guess Row (0-5): "))
+            guess_col = int(input("Guess Col (0-5): "))
+        except ValueError:
+            print("Invalid input. Please enter numbers")
+            continue
