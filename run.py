@@ -32,5 +32,12 @@ def place_ships(board):
 # Function that initializes and starts the game
 
 def play_game():
-    pass
+    player_board = create_board()
+    computer_board = create_board()
+    place_ships(computer_board)
+    num_of_shots = 10
+    player_score = 0
+
+    print(Welcome to BattleShips!)
+    print(Where you have 10 shots to take down the hidden enemy ships)
 
