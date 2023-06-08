@@ -46,6 +46,7 @@ def play_game():
         print_board(player_board)
 
         #Get players guess
+
         try:
             guess_row = int(input("Guess Row (0-5): "))
             guess_col = int(input("Guess Col (0-5): "))
@@ -60,3 +61,20 @@ def play_game():
         if player_board[guess_row][guess_col] == "X":
             print("You guessed here already!, Try again.")
             continue
+
+        # Check players guess against Computers board
+
+        if computer_board[guess_row][guess_col] == "S":
+            print("Congratulations, You sunk a BattleShip!")
+            player_board[guess_row][guess_col] = "X"
+            player_score += 1
+
+            if player_score == 4:
+                print("\nYou win!")
+                break
+
+        else:
+            print("Oops you missed!")
+            player_board[guess_row][guess_col] = "X"
+
+        num_of_shots = -1
