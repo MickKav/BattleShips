@@ -52,3 +52,11 @@ def play_game():
         except ValueError:
             print("Invalid input. Please enter numbers")
             continue
+
+        if guess_row < 0 or guess_row > 5 or guess_col < 0 or guess > 5:
+            print("Your shot has just hit land! Try again.")
+            continue
+
+        if player_board[guess_row][guess_col] == "X":
+            print("You guessed here already!, Try again.")
+            continue
