@@ -1,13 +1,12 @@
 from random import randint
 
-
 # Function to create an empty board
 
 
 def create_board():
     board = []
     for _ in range(6):
-        board.append('O')
+        board.append(['O'] * 6)
     return board
 
 # Function to print the board
@@ -17,7 +16,7 @@ def print_board(board):
     for row in board:
         print(" ".join(row))
 
-# Function to place the ships
+# Function to place ships randomly on the board
 
 
 def place_ships(board):
@@ -31,6 +30,7 @@ def place_ships(board):
 
 # Function that initializes and starts the game
 
+
 def play_game():
     player_board = create_board()
     computer_board = create_board()
@@ -38,43 +38,54 @@ def play_game():
     num_of_shots = 10
     player_score = 0
 
-    print(Welcome to BattleShips!)
-    print(Where you have 10 shots to take down the hidden enemy ships)
+    print("Welcome to Battleship!")
 
     while num_of_shots > 0:
-        print("\nPlayer Board:")
+        print("\nPlayer board:")
         print_board(player_board)
 
-        #Get players guess
+        # Get player's guess
 
+        print(f"Shots remaining {num_of_shots}")
+        print("Take a shot!")
+        
         try:
             guess_row = int(input("Guess Row (0-5): "))
             guess_col = int(input("Guess Col (0-5): "))
         except ValueError:
-            print("Invalid input. Please enter numbers")
+            print("Invalid input. Please enter numbers.")
             continue
 
-        if guess_row < 0 or guess_row > 5 or guess_col < 0 or guess > 5:
-            print("Your shot has just hit land! Try again.")
+        if guess_row < 0 or guess_row > 5 or guess_col < 0 or guess_col > 5:
+            print("Oops, your shot has just hit land!")
             continue
 
-        if player_board[guess_row][guess_col] == "X":
-            print("You guessed here already!, Try again.")
+        if player_board[guess_row][guess_col] == 'X':
+            print("You've already guessed that!")
             continue
 
-        # Check players guess against Computers board
+        # Check player's guess against computer's board
 
-        if computer_board[guess_row][guess_col] == "S":
-            print("Congratulations, You sunk a BattleShip!")
-            player_board[guess_row][guess_col] = "X"
+        if computer_board[guess_row][guess_col] == 'S':
+            print("Congratulations! You sank a ship!")
+            player_board[guess_row][guess_col] = 'X'
             player_score += 1
-
             if player_score == 4:
-                print("\nYou win!")
+                print("\nPlayer wins!")
                 break
-
         else:
-            print("Oops you missed!")
-            player_board[guess_row][guess_col] = "X"
+            print("Oops, you missed!")
+            player_board[guess_row][guess_col] = 'X'
 
-        num_of_shots = -1
+        num_of_shots -= 1
+
+    if num_of_shots == 0:
+        print("\nGame over! Out of shots.")
+        print("Computer board:")
+        print_board(computer_board)
+        print("Better luck next time!")
+
+# Play the game
+
+
+play_game()
