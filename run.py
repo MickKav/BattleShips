@@ -60,8 +60,7 @@ def play_game():
             print("Oops, your shot has just hit land!")
             continue
 
-        if player_board[guess_row][guess_col] == 'X' or 
-            player_board[guess_row][guess_col] == '#':
+        if player_board[guess_row][guess_col] == 'X' or player_board[guess_row][guess_col] == '#':
             print("You've already guessed that!")
             continue
 
