@@ -48,10 +48,10 @@ def play_game():
 
         print(f"Shots remaining {num_of_shots}")
         print("Take a shot!")
-        
+      
         try:
-            guess_row = int(input("Guess Row (0-5): "))
-            guess_col = int(input("Guess Col (0-5): "))
+            guess_row = int(input("Guess Row (0 - 5): "))
+            guess_col = int(input("Guess Col (0 - 5): "))
         except ValueError:
             print("Invalid input. Please enter numbers.")
             continue
@@ -60,7 +60,8 @@ def play_game():
             print("Oops, your shot has just hit land!")
             continue
 
-        if player_board[guess_row][guess_col] == 'X':
+        if player_board[guess_row][guess_col] == 'X' or 
+            player_board[guess_row][guess_col] == '#':
             print("You've already guessed that!")
             continue
 
@@ -68,7 +69,7 @@ def play_game():
 
         if computer_board[guess_row][guess_col] == 'S':
             print("Congratulations! You sank a ship!")
-            player_board[guess_row][guess_col] = 'X'
+            player_board[guess_row][guess_col] = '#'
             player_score += 1
             if player_score == 4:
                 print("\nPlayer wins!")
@@ -80,7 +81,7 @@ def play_game():
         num_of_shots -= 1
 
     if num_of_shots == 0:
-        print("\nGame over! Out of shots.")
+        print("\nAmmo is empty, you are doomed. Game Over!")
         print("Computer board:")
         print_board(computer_board)
         print("Better luck next time!")
