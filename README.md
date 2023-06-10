@@ -1,32 +1,61 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BattleShips project (Portfolio 3)
 
-Welcome,
+A game of Battleships wherr you enter coordinates to hit the opponents ships.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## How to play
+- On Initialization, the board is generated randomly. Ships are placed unknown to the user.
+<br>
+<br>
+<img src="https://imgtr.ee/images/2023/06/10/KNMWJ.png"  width="100" height="100">
+<br>
+<br>
+- We are presented with quantity of shots left and a prompt to input coordinates in both y and x axis.
+<br>
+<br>
+<img src="https://imgtr.ee/images/2023/06/10/KN7Gz.png"  width="100" height="100">
+<br>
+<br>
+- Input validation is responded with when user enters coordinates out of the scope of the grid, enters the same guess twice and when user doesnt use numbers for input requests.
+<br>
+<br>
+<img src="https://imgtr.ee/images/2023/06/10/KLXe2.png"  width="150" height="100">
+<img src="https://imgtr.ee/images/2023/06/10/KLHQA.png"  width="120" height="100">
+<img src="https://imgtr.ee/images/2023/06/10/KLzU7.png"  width="150" height="100">
+<br>
+<br>
 
-## Reminders
+## About This Project
+I made this project with 4 functions that generate a board of 5 randomly positioned enemy ships of which only occupy one space. The user is provided with 10 shots to locate all 5 ships. The majority of this is contained in a while loop within the play_game() function which dictates various outcomes through if statements depending on user input and info updated in variables via the while loop.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+### Built with
+This project was structured with Python.
 
-## Creating the Heroku app
+### Bugs
+- Minor updates like adjusting the information logged to the user were all the fixes that needed to be done so far.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+#### Bugs remaining
+- No bugs are in the project currently.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Testing
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+- Screened project by running through PEP8online validator
+- Input invalid information, string values instead of numbers, same coordinates twice, numbers out of grid scope.
+- Tested in my loacal terminal and Code Institutes Heroku terminal
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Validator testing
 
-Connect your GitHub repository and deploy as normal.
+- PEP8: No errors were returned from PEP8online
 
-## Constraints
+## Deployment
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+The site was deployed using Code Institutes mock terminal in Heroku.
 
----
+- Steps for deployment:
+    - Fork or clone this repository
+    - Create a new Heroku app
+    - Set the buildbacks to "Python" and "NodeJS" in that order
+    - Link the Heroku app to the repository
+    - Click on **Deploy**
 
-Happy coding!
+## Credits
+- Code Institute for the Heroku terminal
