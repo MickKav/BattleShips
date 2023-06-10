@@ -35,7 +35,7 @@ def play_game():
     player_board = create_board()
     computer_board = create_board()
     place_ships(computer_board)
-    num_of_shots = 10
+    num_of_shots = 12
     player_score = 0
 
     print("Welcome to Battleship!")
